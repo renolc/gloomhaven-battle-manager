@@ -4,14 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gloomhaven Battle Manager</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+    </style>
     <script type="module">
       import './js/components/page-router.js'
-      import { state } from './js/state.js'
-
-      window.addEventListener('click', () => (state.page = Math.random()))
     </script>
   </head>
   <body>
-    <page-router />
+    <page-router></page-router>
   </body>
 </html>
