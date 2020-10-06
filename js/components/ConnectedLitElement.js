@@ -5,11 +5,15 @@ export default class extends LitElement {
   connectedCallback() {
     super.connectedCallback()
 
-    this.__events = this.render
-      .toString()
-      .split(/[\s{}]/)
-      .filter(i => i.includes('state.'))
-      .map(i => `${i.split('state.')[1]}:changed`)
+    this.__events = Array.from(
+      new Set(
+        this.constructor
+          .toString()
+          .split(/[\s{}]/)
+          .filter(i => i.startsWith('state.'))
+          .map(i => `${i.split('state.')[1]}:changed`)
+      )
+    )
 
     this.__events.forEach(i => {
       this[i] = () => this.requestUpdate()
