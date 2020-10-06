@@ -1,6 +1,6 @@
 import { html, css } from 'https://cdn.skypack.dev/lit-element'
-import { state } from '../state.js'
 import ConnectedLitElement from './ConnectedLitElement.js'
+import { state } from '../state.js'
 
 customElements.define(
   'page-router',
@@ -12,8 +12,12 @@ customElements.define(
       `
     }
 
+    test() {
+      return state.page
+    }
+
     render() {
-      return html`<div class="root">${state.page}</div>`
+      return html` <div class="root">${this.test()}</div> `
     }
   }
 )
